@@ -1,0 +1,16 @@
+.star-rating {
+  background-image: url(../assets/icon-star.svg);
+  width: 32px;
+  height: 32px;
+  margin-right: 5px;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  margin-bottom: 5px;
+}

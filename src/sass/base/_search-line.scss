@@ -1,0 +1,28 @@
+.search-wrapper {
+    max-width: 810px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.search-line {
+    margin-top: 20px;
+}
+
+.form-control {
+    width: 688px !important;
+    flex-basis: 55%;
+}
+
+.form-inline {
+    justify-content: center;
+}
+
+.search-button {
+    flex-basis: 10%;
+}
+
+@media screen and (max-width: 768px) {
+    .form-inline {
+        justify-content: space-evenly;
+    }
+}

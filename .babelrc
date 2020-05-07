@@ -1,0 +1,7 @@
+{
+  "presets": ["@babel/env"],
+  "plugins": [["transform-async-to-generator", {
+   "regenerator": true
+   }]
+  ]
+}
