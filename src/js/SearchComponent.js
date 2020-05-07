@@ -1,11 +1,14 @@
+import MoviesComponent from './MoviesComponent';
+
 export default class SearchComponent {
   constructor() {
     this.root = document.createElement('main');
+    // this.movies = new MoviesComponent();
   }
 
-  draw() {
-    const search = `<div class="wrapper">
-                      <div class="search-line">
+  init() {
+    const search = `<div class="search-line">
+                      <div class="wrapper">
                           <form class="form-inline my-2 my-lg-0">
                             <input class="form-control mr-sm-2" type="text" placeholder="Search">
                             <button class="search-button btn btn-secondary my-2 my-sm-0" type="submit">
@@ -15,6 +18,13 @@ export default class SearchComponent {
                       </div>
                     </div>`;
     this.root.insertAdjacentHTML('beforeend', search);
+
+    this.root.querySelector('.search-button').onclick = () => {
+      let inputValue = (this.root.querySelector('.form-control')).value;
+      console.log(inputValue);
+      new MoviesComponent().changeMovies(inputValue);
+    };
+
     return this.root;
   }
 }

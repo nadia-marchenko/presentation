@@ -3,7 +3,7 @@ export default class FooterComponent {
     this.root = document.createElement('footer');
   }
 
-  draw() {
+  init() {
     this.root.className = 'footer';
     const FOOTER = `<div class="wrapper">
                       <div class="footer__wrapper bg-dark">

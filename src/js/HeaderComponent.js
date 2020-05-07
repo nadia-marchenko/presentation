@@ -3,7 +3,7 @@ export default class HeaderComponent {
     this.root = document.createElement('header');
   }
 
-  draw() {
+  init() {
     const HEADER = `<div class="wrapper header__wrapper">
                         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                             <a class="navbar-brand logo-text" href="#">MovieSearch</a>

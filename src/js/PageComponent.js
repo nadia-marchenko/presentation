@@ -18,9 +18,11 @@ export default class PageComponent {
   }
 
   init() {
-    this.root.prepend(this.header.draw());
-    this.root.querySelector('header').after(this.search.draw());
-    this.root.querySelector('main').append(this.movies.init());
-    this.root.querySelector('main').after(this.footer.draw());
+    const DEFAULT_SEARCH = 'cat';
+
+    this.root.prepend(this.header.init());
+    this.root.querySelector('header').after(this.search.init());
+    this.root.querySelector('main').append(this.movies.init(DEFAULT_SEARCH));
+    this.root.querySelector('main').after(this.footer.init());
   }
 }

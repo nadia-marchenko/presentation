@@ -7,7 +7,7 @@ export default class MovieCardComponent {
 
   init(movie) {
     this.root.className = 'swiper-slide card';
-    const POSTER = (movie.Poster === 'N/A') ? './assets/default-poster.jpeg' : movie.Poster;
+    const POSTER = (movie.Poster === 'N/A') ? './images/default-poster.jpeg' : movie.Poster;
 
     const CARD = `<a href="https://www.imdb.com/title/${movie.imdbID}/">  
                     <img
