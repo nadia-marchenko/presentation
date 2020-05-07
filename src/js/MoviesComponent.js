@@ -1,20 +1,17 @@
-// import * as FILMS from '../Films.json';
-import MovieCardComponent from './MovieCardComponent';
-import 'babel-polyfill';
+// import 'babel-polyfill';
 import fetch from 'node-fetch';
+import MovieCardComponent from './MovieCardComponent';
 import SliderComponent from './SliderComponent';
+import Helper from './Helper';
 
 export default class MoviesComponent {
   constructor() {
     this.root = document.createElement('div');
-    // this.data = FILMS;
-    // this.data = this.getFilms();
     this.slider = new SliderComponent();
   }
 
   init() {
     this.root.className = 'movies';
-    // const searchResult = this.data.default.Search;
 
     const CARDS = `<div class="wrapper">
                       <div class="swiper-container">
@@ -29,36 +26,26 @@ export default class MoviesComponent {
 
     this.root.insertAdjacentHTML('beforeend', CARDS);
 
-    // for (let i = 0; i < searchResult.length; i += 1) {
-    //   const card = new MovieCardComponent();
-    //   this.root.querySelector('.swiper-wrapper').append(card.init(searchResult[i]));
-    // }
-
     this.fetchFilms('http://www.omdbapi.com/?s=cat&apikey=e504ed78');
 
     return this.root;
   }
 
-  async fetchPost(url) {
-    const response = await fetch(url);
-    const json = await response.json();
-    // console.log(json);
-    return json;
-  }
+  // async fetchPost(url) {
+  //   const response = await fetch(url);
+  //   const json = await response.json();
+  //   return json;
+  // }
 
   async fetchFilms(url) {
-    const films = await this.fetchPost(url).then((content) => 
-      { this.addFilms(content)}
-    );
+    await Helper.fetchPost(url).then((content) => this.addFilms(content));
   }
 
   addFilms(searchResult) {
-    for (let film of searchResult.Search) {
+    for (let i = 0; i < searchResult.Search.length; i += 1) {
       const card = new MovieCardComponent();
-      this.root.querySelector('.swiper-wrapper').append(card.init(film));
-      // this.root.append(card.init(film));
+      this.root.querySelector('.swiper-wrapper').append(card.init(searchResult.Search[i]));
     }
     this.slider.init();
   }
-
 }
