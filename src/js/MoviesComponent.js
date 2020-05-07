@@ -26,7 +26,7 @@ export default class MoviesComponent {
 
     this.root.insertAdjacentHTML('beforeend', CARDS);
 
-    this.fetchFilms('http://www.omdbapi.com/?s=cat&apikey=e504ed78');
+    this.fetchFilms('https://www.omdbapi.com/?s=cat&apikey=e504ed78');
 
     return this.root;
   }
