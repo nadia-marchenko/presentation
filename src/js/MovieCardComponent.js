@@ -1,3 +1,5 @@
+import Helper from "./Helper";
+
 export default class MovieCardComponent {
   constructor() {
     this.root = document.createElement('div');
@@ -5,7 +7,6 @@ export default class MovieCardComponent {
 
   init(movie) {
     this.root.className = 'swiper-slide card';
-    // this.root.className = 'new-films';
     const POSTER = (movie.Poster === 'N/A') ? './assets/default-poster.jpeg' : movie.Poster;
 
     const CARD = `<a href="https://www.imdb.com/title/${movie.imdbID}/">  
@@ -19,10 +20,23 @@ export default class MovieCardComponent {
                     <h5 class ="title-movie">${movie.Title}</h5>
                   </a>
                   <p>${movie.Year}</p>
-                  <p class="rating"><span class='star-rating'></span><span>4,4</span></p>`;
+                  <p class="rating">
+                    <span class='star-rating'></span><span class="rating-text"></span>
+                  </p>`;
 
     this.root.insertAdjacentHTML('beforeend', CARD);
 
+    this.fetchRating(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=e504ed78`);
+
     return this.root;
+  }
+
+  async fetchRating(url) {
+    await Helper.fetchPost(url).then((content) => {this.getRating(content), console.log(content)});
+  }
+
+  getRating(searchResult) {
+    this.root.querySelector('.rating-text').innerHTML = searchResult.imdbRating;
+    console.log(searchResult.imdbRating);
   }
 }

@@ -1,5 +1,3 @@
-import MovieCardComponent from "./MovieCardComponent";
-
 export default class SearchComponent {
   constructor() {
     this.root = document.createElement('main');

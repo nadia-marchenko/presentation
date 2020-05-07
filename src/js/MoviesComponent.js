@@ -1,5 +1,5 @@
 // import 'babel-polyfill';
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 import MovieCardComponent from './MovieCardComponent';
 import SliderComponent from './SliderComponent';
 import Helper from './Helper';
@@ -30,12 +30,6 @@ export default class MoviesComponent {
 
     return this.root;
   }
-
-  // async fetchPost(url) {
-  //   const response = await fetch(url);
-  //   const json = await response.json();
-  //   return json;
-  // }
 
   async fetchFilms(url) {
     await Helper.fetchPost(url).then((content) => this.addFilms(content));
