@@ -1,4 +1,4 @@
-import Helper from "./Helper";
+import Helper from './Helper';
 
 export default class MovieCardComponent {
   constructor() {
@@ -32,11 +32,10 @@ export default class MovieCardComponent {
   }
 
   async fetchRating(url) {
-    await Helper.fetchPost(url).then((content) => {this.getRating(content), console.log(content)});
+    await Helper.fetchPost(url).then((content) => this.getRating(content));
   }
 
   getRating(searchResult) {
     this.root.querySelector('.rating-text').innerHTML = searchResult.imdbRating;
-    console.log(searchResult.imdbRating);
   }
 }
