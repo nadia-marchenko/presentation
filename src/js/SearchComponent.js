@@ -1,4 +1,5 @@
 import MoviesComponent from './MoviesComponent';
+import Helper from './Helper';
 
 export default class SearchComponent {
   constructor() {
@@ -20,7 +21,7 @@ export default class SearchComponent {
     this.root.insertAdjacentHTML('beforeend', search);
 
     this.root.querySelector('.search-button').onclick = () => {
-      this.root.insertAdjacentHTML('afterbegin', '<div id="spinner"></div>');
+      Helper.showSpinner();
       let inputValue = (this.root.querySelector('.form-control')).value;
       console.log(inputValue);
       new MoviesComponent().changeMovies(inputValue);

@@ -17,10 +17,22 @@ export default class SliderComponent {
         prevEl: '.swiper-button-prev',
       },
       keyboard: true,
-      slidesPerView: 3,
       grabCursor: true,
       paginationClickable: true,
-      spaceBetween: 30,
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
       loop: true,
     });
   }
