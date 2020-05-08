@@ -10,7 +10,7 @@ export default class SearchComponent {
     const search = `<div class="search-line">
                       <div class="wrapper">
                           <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" autofocus>
                             <button class="search-button btn btn-secondary my-2 my-sm-0" type="submit">
                               Search
                             </button>
@@ -20,6 +20,7 @@ export default class SearchComponent {
     this.root.insertAdjacentHTML('beforeend', search);
 
     this.root.querySelector('.search-button').onclick = () => {
+      this.root.insertAdjacentHTML('afterbegin', '<div id="spinner"></div>');
       let inputValue = (this.root.querySelector('.form-control')).value;
       console.log(inputValue);
       new MoviesComponent().changeMovies(inputValue);
