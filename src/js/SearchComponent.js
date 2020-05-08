@@ -10,7 +10,7 @@ export default class SearchComponent {
     const search = `<div class="search-line">
                       <div class="wrapper">
                           <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search">
                             <button class="search-button btn btn-secondary my-2 my-sm-0" type="submit">
                               Search
                             </button>
