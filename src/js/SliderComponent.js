@@ -1,12 +1,8 @@
 import Swiper from 'swiper';
 
 export default class SliderComponent {
-  constructor() {
-    this.root = document.createElement('div');
-  }
-
   init() {
-    this.root.className = 'slider';
+    /* eslint-disable no-unused-vars */
     const SWIPER = new Swiper('.swiper-container', {
       pagination: {
         el: '.swiper-pagination',
@@ -35,5 +31,6 @@ export default class SliderComponent {
       },
       loop: true,
     });
+  /* eslint-enable no-unused-vars */
   }
 }

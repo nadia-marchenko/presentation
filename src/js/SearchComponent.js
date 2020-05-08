@@ -22,9 +22,9 @@ export default class SearchComponent {
 
     this.root.querySelector('.search-button').onclick = () => {
       Helper.showSpinner();
-      let inputValue = (this.root.querySelector('.form-control')).value;
-      console.log(inputValue);
-      new MoviesComponent().changeMovies(inputValue);
+      const INPUT_VALUE = (this.root.querySelector('.form-control')).value;
+      // console.log(inputValue);
+      new MoviesComponent().changeMovies(INPUT_VALUE);
     };
 
     return this.root;

@@ -30,7 +30,7 @@ export default class MoviesComponent {
   }
 
   async fetchMovies(url) {
-    await Helper.fetchPost(url).then((content) => {this.addMovies(content), console.log(content)});
+    await Helper.fetchPost(url).then((content) => this.addMovies(content));
   }
 
   addMovies(searchResult) {
@@ -38,12 +38,12 @@ export default class MoviesComponent {
       const card = new MovieCardComponent();
       this.root.querySelector('.swiper-wrapper').append(card.init(searchResult.Search[i]));
     }
-    new SliderComponent().init();
+    Helper.addSwiper();
+    // new SliderComponent().init();
   }
 
   changeMovies(inputMovie) {
     document.querySelector('.movies').remove();
-    // this.init(inputMovie);
     document.querySelector('main').append(this.init(inputMovie));
   }
 }
