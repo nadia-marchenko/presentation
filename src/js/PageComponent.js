@@ -18,11 +18,11 @@ export default class PageComponent {
   }
 
   init() {
-    const DEFAULT_SEARCH = 'cat';
+    // const DEFAULT_SEARCH = 'cat';
 
-    this.root.prepend(this.header.init());
-    this.root.querySelector('header').after(this.search.init());
-    this.root.querySelector('main').append(this.movies.init(DEFAULT_SEARCH));
-    this.root.querySelector('main').after(this.footer.init());
+    this.root.insertAdjacentElement('beforeend', this.header.init());
+    this.root.insertAdjacentElement('beforeend', this.search.init());
+    // this.root.insertAdjacentElement('beforeend', this.movies.init(DEFAULT_SEARCH));
+    this.root.insertAdjacentElement('beforeend', this.footer.init());
   }
 }

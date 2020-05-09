@@ -2,20 +2,27 @@ import Swiper from 'swiper';
 
 export default class Helper {
   static async fetchPost(url) {
-    const response = await fetch(url);
-    const json = await response.json();
-    this.hideSpinner();
-    return json;
+    try {
+      const response = await fetch(url);
+      const json = await response.json();
+      // this.hideSpinner();
+      return json;
+    } catch (error) {
+      throw new Error('No data');
+    }
   }
 
+  // static showSpinner() {
+  //   document.querySelector('main').insertAdjacentHTML('afterbegin', '<div id="spinner"></div>');
+  // }
+
   static showSpinner() {
-    document.querySelector('main').insertAdjacentHTML('afterbegin', '<div id="spinner"></div>');
+    // this.root.insertAdjacentHTML('afterbegin', '<div id="spinner"></div>');
+    document.getElementById('spinner').removeAttribute('hidden');
   }
 
   static hideSpinner() {
-    if (document.getElementById('spinner')) {
-      document.getElementById('spinner').setAttribute('hidden', '');
-    }
+    document.getElementById('spinner').setAttribute('hidden', '');
   }
 
   static addSwiper() {
