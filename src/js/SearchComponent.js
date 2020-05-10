@@ -23,22 +23,17 @@ export default class SearchComponent {
 
     this.root.insertAdjacentElement('beforeend', this.movies.init(DEFAULT_SEARCH));
 
-    const FORM = this.root.querySelector(".form-inline");
-    FORM.addEventListener('submit', this.handleForm);
-
-    this.root.querySelector('.search-button').onclick = () => {
+    this.root.querySelector('.search-button').onclick = (event) => {
+      event.preventDefault();
       Helper.showSpinner();
       const INPUT_VALUE = (this.root.querySelector('.form-control')).value;
       this.movies.changeMovies(INPUT_VALUE);
-      Helper.hideSpinner();
+      // Helper.hideSpinner();
     };
 
     return this.root;
   }
 
-  handleForm(event) { 
-    event.preventDefault(); 
-  } 
   // showSpinner() {
   //   this.root.insertAdjacentHTML('afterbegin', '<div id="spinner"></div>');
   //   document.getElementById('spinner').removeAttribute('hidden');

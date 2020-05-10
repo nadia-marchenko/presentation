@@ -5,7 +5,7 @@ export default class Helper {
     try {
       const response = await fetch(url);
       const json = await response.json();
-      // this.hideSpinner();
+      this.hideSpinner();
       return json;
     } catch (error) {
       throw new Error('No data');

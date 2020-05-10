@@ -35,6 +35,7 @@ export default class MoviesComponent {
         ? this.root.insertAdjacentHTML('afterbegin', `<h6 class="no-results">No results for "${inputMovie}"</h6>`)
         : this.addMovies(content)
       ));
+      Helper.hideSpinner();
     } catch (error) {
       throw new Error('No data');
     }
@@ -62,7 +63,6 @@ export default class MoviesComponent {
     } else {
       this.fetchMovies(inputMovie);
     }
-    Helper.hideSpinner();
   }
 
   async getTranslate(word) {
