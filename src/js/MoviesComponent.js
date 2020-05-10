@@ -9,6 +9,8 @@ export default class MoviesComponent {
   }
 
   init(inputMovie) {
+    document.location.href = '/?#';
+
     this.root.className = 'movies';
 
     const CARDS = `<div id="spinner" hidden></div>
