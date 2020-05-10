@@ -12,12 +12,7 @@ export default class Helper {
     }
   }
 
-  // static showSpinner() {
-  //   document.querySelector('main').insertAdjacentHTML('afterbegin', '<div id="spinner"></div>');
-  // }
-
   static showSpinner() {
-    // this.root.insertAdjacentHTML('afterbegin', '<div id="spinner"></div>');
     document.getElementById('spinner').removeAttribute('hidden');
   }
 

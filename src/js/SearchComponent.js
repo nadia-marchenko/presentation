@@ -28,14 +28,8 @@ export default class SearchComponent {
       Helper.showSpinner();
       const INPUT_VALUE = (this.root.querySelector('.form-control')).value;
       this.movies.changeMovies(INPUT_VALUE);
-      // Helper.hideSpinner();
     };
 
     return this.root;
   }
-
-  // showSpinner() {
-  //   this.root.insertAdjacentHTML('afterbegin', '<div id="spinner"></div>');
-  //   document.getElementById('spinner').removeAttribute('hidden');
-  // }
 }

@@ -18,11 +18,8 @@ export default class PageComponent {
   }
 
   init() {
-    // const DEFAULT_SEARCH = 'cat';
-
     this.root.insertAdjacentElement('beforeend', this.header.init());
     this.root.insertAdjacentElement('beforeend', this.search.init());
-    // this.root.insertAdjacentElement('beforeend', this.movies.init(DEFAULT_SEARCH));
     this.root.insertAdjacentElement('beforeend', this.footer.init());
   }
 }

@@ -1,5 +1,3 @@
-// import 'babel-polyfill';
-// import fetch from 'node-fetch';
 import MovieCardComponent from './MovieCardComponent';
 import Helper from './Helper';
 
