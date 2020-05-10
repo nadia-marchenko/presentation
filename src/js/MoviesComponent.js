@@ -1,7 +1,6 @@
 // import 'babel-polyfill';
 // import fetch from 'node-fetch';
 import MovieCardComponent from './MovieCardComponent';
-import SliderComponent from './SliderComponent';
 import Helper from './Helper';
 
 export default class MoviesComponent {
