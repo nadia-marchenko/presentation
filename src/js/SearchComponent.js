@@ -23,8 +23,8 @@ export default class SearchComponent {
     this.root.insertAdjacentElement('beforeend', this.movies.init(DEFAULT_SEARCH));
     this.root.querySelector('.search-button').onclick = (event) => {
       event.preventDefault();
-      Helper.showSpinner();
       const INPUT_VALUE = (this.root.querySelector('.form-control')).value;
+      // Helper.showSpinner();
       this.movies.changeMovies(INPUT_VALUE);
     };
     return this.root;

@@ -5,9 +5,9 @@ const fetch = require('node-fetch');
 export default class Helper {
   static async fetchPost(url) {
     // try {
+    // this.showSpinner();
     const response = await fetch(url);
     const json = await response.json();
-    // this.hideSpinner();
     return json;
     // } catch (error) {
     //   throw new Error('No data');
@@ -19,7 +19,8 @@ export default class Helper {
   }
 
   static showSpinner() {
-    document.querySelector('.spinner').removeAttribute('hidden');
+    document.querySelector('.spinner').classList.remove('hidden');
+    // document.querySelector('#spinner').removeAttribute('hidden');
   }
 
   // static hideSpinner() {

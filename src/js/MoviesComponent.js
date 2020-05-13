@@ -9,7 +9,11 @@ export default class MoviesComponent {
   init(inputMovie) {
     this.root.className = 'movies';
 
-    const CARDS = `<div class="spinner" hidden></div>
+    const CARDS = `<div class="spinner d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
                   <div class="wrapper movies-wrapper">
                     <div class="swiper-container">
                       <div class="swiper-wrapper"></div>
@@ -27,12 +31,12 @@ export default class MoviesComponent {
   }
 
   async fetchMovies(inputMovie) {
+    this.showSpinner();
     const URL = `https://www.omdbapi.com/?s=${inputMovie}&apikey=e504ed78`;
-    // this.showSpinner();
     await Helper.fetchPost(URL)
       .then((content) => this.checkErrors(content, inputMovie))
       .then((content) => this.addMovies(content))
-      .then(this.hideSpinner())
+      // .then(this.hideSpinner())
       .catch((error) => {
         console.log(error);
       });
@@ -54,6 +58,7 @@ export default class MoviesComponent {
     try {
       this.root.querySelector('.swiper-wrapper').innerHTML = '';
       this.createCards(searchResult);
+      this.hideSpinner();
       Helper.addSwiper();
     } catch (error) {
       throw new Error('No data');
@@ -86,18 +91,13 @@ export default class MoviesComponent {
   }
 
   showSpinner() {
-    this.root.querySelector('.spinner').removeAttribute('hidden');
+    this.root.querySelector('.spinner').classList.remove('hidden');
+    // this.root.querySelector('#spinner').removeAttribute('hidden');
+    // this.root.querySelector('#spinner').
   }
 
   hideSpinner() {
-    this.root.querySelector('.spinner').setAttribute('hidden', '');
+    this.root.querySelector('.spinner').classList.add('hidden');
+    // this.root.querySelector('#spinner').setAttribute('hidden', '');
   }
-
-  // addPagination(searchResult) {
-  //   if(searchResult.totalResults > 10) {
-  //     for(let i = 0; i < Math.ceil(searchResult.totalResults / 10); i += 1) {
-  //       await Helper.fetchPost();
-  //     }
-  //   }
-  // }
 }

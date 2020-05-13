@@ -28,7 +28,7 @@ export default class MovieCardComponent {
 
     this.root.querySelector('.poster').onerror = () => {
       this.root.querySelector('.poster').src = './images/default-poster.jpeg';
-      console.log('Problems with images');
+      console.log('Problems with loading image');
     };
 
     this.fetchRating(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=e504ed78`);
