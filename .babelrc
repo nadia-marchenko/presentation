@@ -2,6 +2,12 @@
   "presets": ["@babel/env"],
   "plugins": [["transform-async-to-generator", {
    "regenerator": true
-   }]
-  ]
+   }],
+   ["@babel/plugin-transform-runtime"]
+  ],
+  "env": {
+    "test": {
+      "plugins" : ["dynamic-import-node"]
+    }
+  }
 }

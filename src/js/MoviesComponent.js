@@ -9,7 +9,7 @@ export default class MoviesComponent {
   init(inputMovie) {
     this.root.className = 'movies';
 
-    const CARDS = `<div id="spinner" hidden></div>
+    const CARDS = `<div class="spinner" hidden></div>
                   <div class="wrapper movies-wrapper">
                     <div class="swiper-container">
                       <div class="swiper-wrapper"></div>
@@ -27,28 +27,43 @@ export default class MoviesComponent {
   }
 
   async fetchMovies(inputMovie) {
-    try {
-      const URL = `https://www.omdbapi.com/?s=${inputMovie}&apikey=e504ed78`;
-      await Helper.fetchPost(URL).then((content) => ((content.Response === 'False' && content.Error === 'Movie not found!')
-        ? this.root.insertAdjacentHTML('afterbegin', `<h6 class="no-results">No results for "${inputMovie}"</h6>`)
-        : this.addMovies(content)
-      ));
-      Helper.hideSpinner();
-    } catch (error) {
-      throw new Error('No data');
+    const URL = `https://www.omdbapi.com/?s=${inputMovie}&apikey=e504ed78`;
+    // this.showSpinner();
+    await Helper.fetchPost(URL)
+      .then((content) => this.checkErrors(content, inputMovie))
+      .then((content) => this.addMovies(content))
+      .then(this.hideSpinner())
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  checkErrors(response, inputMovie) {
+    if (response.Response === 'False' && response.Error === 'Movie not found!') {
+      this.root.insertAdjacentHTML('afterbegin', `<h6 class="no-results">No results for "${inputMovie}"</h6>`);
+      throw Error(response.statusText);
     }
+    if (response.Response === 'False' && response.Error === 'Too many results.') {
+      this.root.insertAdjacentHTML('afterbegin', `<h6 class="no-results">Too many results for "${inputMovie}". Please, try again</h6>`);
+      throw Error(response.statusText);
+    }
+    return response;
   }
 
   addMovies(searchResult) {
     try {
       this.root.querySelector('.swiper-wrapper').innerHTML = '';
-      for (let i = 0; i < searchResult.Search.length; i += 1) {
-        const card = new MovieCardComponent();
-        this.root.querySelector('.swiper-wrapper').append(card.init(searchResult.Search[i]));
-      }
+      this.createCards(searchResult);
       Helper.addSwiper();
     } catch (error) {
       throw new Error('No data');
+    }
+  }
+
+  createCards(searchResult) {
+    for (let i = 0; i < searchResult.Search.length; i += 1) {
+      const card = new MovieCardComponent();
+      this.root.querySelector('.swiper-wrapper').append(card.init(searchResult.Search[i]));
     }
   }
 
@@ -56,7 +71,7 @@ export default class MoviesComponent {
     if (this.root.querySelector('h6')) {
       this.root.querySelector('h6').remove();
     }
-    if (/[а-я]/.test(inputMovie)) {
+    if (Helper.isRussianWord(inputMovie)) {
       this.getTranslate(inputMovie);
     } else {
       this.fetchMovies(inputMovie);
@@ -69,4 +84,20 @@ export default class MoviesComponent {
     this.root.insertAdjacentHTML('afterbegin', `<h6>Showing results for "${word}"</h6>`);
     await Helper.fetchPost(url).then((content) => this.fetchMovies(content.text[0]));
   }
+
+  showSpinner() {
+    this.root.querySelector('.spinner').removeAttribute('hidden');
+  }
+
+  hideSpinner() {
+    this.root.querySelector('.spinner').setAttribute('hidden', '');
+  }
+
+  // addPagination(searchResult) {
+  //   if(searchResult.totalResults > 10) {
+  //     for(let i = 0; i < Math.ceil(searchResult.totalResults / 10); i += 1) {
+  //       await Helper.fetchPost();
+  //     }
+  //   }
+  // }
 }

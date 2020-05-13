@@ -26,6 +26,11 @@ export default class MovieCardComponent {
 
     this.root.insertAdjacentHTML('beforeend', CARD);
 
+    this.root.querySelector('.poster').onerror = () => {
+      this.root.querySelector('.poster').src = './images/default-poster.jpeg';
+      console.log('Problems with images');
+    };
+
     this.fetchRating(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=e504ed78`);
 
     return this.root;

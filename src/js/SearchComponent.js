@@ -20,16 +20,13 @@ export default class SearchComponent {
                       </div>
                     </div>`;
     this.root.insertAdjacentHTML('beforeend', search);
-
     this.root.insertAdjacentElement('beforeend', this.movies.init(DEFAULT_SEARCH));
-
     this.root.querySelector('.search-button').onclick = (event) => {
       event.preventDefault();
       Helper.showSpinner();
       const INPUT_VALUE = (this.root.querySelector('.form-control')).value;
       this.movies.changeMovies(INPUT_VALUE);
     };
-
     return this.root;
   }
 }

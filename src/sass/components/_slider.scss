@@ -62,9 +62,10 @@ body {
 }
 
 .poster {
-  height: 300px;
+  max-height: 300px;
   width: auto;
   margin-top: 15px;
+  object-fit: cover;
 }
 
 .title-movie {
