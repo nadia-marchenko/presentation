@@ -6,7 +6,7 @@ import MoviesComponent from './MoviesComponent';
 function importAll(r) {
   r.keys().forEach(r);
 }
-importAll(require.context('../assets', true, /\.jpeg$/));
+importAll(require.context('../../assets', true, /\.jpeg$/));
 
 export default class PageComponent {
   constructor() {

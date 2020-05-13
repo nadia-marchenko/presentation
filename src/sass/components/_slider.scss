@@ -1,26 +1,3 @@
-// .slider {
-//   background: #eee;
-//   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-//   font-size: 14px;
-//   color: #000;
-//   margin: 0;
-//   padding: 0;
-// }
-
-html, body {
-  position: relative;
-  height: 100%;
-}
-
-body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color:#000;
-  margin: 0;
-  padding: 0;
-}
-
 .swiper-container {
   width: 100%;
   height: 487px;
@@ -31,7 +8,6 @@ body {
   text-align: center;
   font-size: 18px;
   background: #fff;
-  /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;

@@ -1,4 +1,4 @@
-import Helper from './Helper';
+import Helper from '../helpers/Helper';
 
 export default class MovieCardComponent {
   constructor() {
@@ -28,7 +28,7 @@ export default class MovieCardComponent {
 
     this.root.querySelector('.poster').onerror = () => {
       this.root.querySelector('.poster').src = './images/default-poster.jpeg';
-      console.log('Problems with loading image');
+      throw new Error('Problems with loading image');
     };
 
     this.fetchRating(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=e504ed78`);

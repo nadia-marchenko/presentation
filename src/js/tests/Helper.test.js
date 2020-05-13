@@ -1,4 +1,4 @@
-import Helper from './Helper';
+import Helper from '../helpers/Helper';
 
 describe('it is Russian word', () => {
   test('should be truth', () => {
