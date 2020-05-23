@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>SEO for developers</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>5 SEO Guidelines</h2><h2>for Web Developers</h2>
+					<hr>
+					<p>
+						<small>Created by <a href="https://github.com/nadia-marchenko">Nadya Marchanka</a></small>
+					</p>
+					<p style="margin-top: 120px;">
+						<small>RS School 2020q1</small>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h4>SEO -</h4><p>search engine optimization: the process of making your site better for search engines.</p>
+						<img data-src="assets/page-speed-tips-min.png" alt="" style="width: 600px;">
+					</section>
+					<section>
+							<img src="https://www.statista.com/graphic/1/216573/worldwide-market-share-of-search-engines.jpg" alt="" style="width: 100%; height: auto !important; max-width:775px;-ms-interpolation-mode: bicubic;"/>
+					</section>
+					<section data-background="https://media.giphy.com/media/HUplkVCPY7jTW/giphy.gif" data-background-size="contain">
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<blockquote class="common-issue" cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+							Most common technical SEO rules
+						</blockquote>
+						<h3>1. Keep your staging or development site out of the index</h3>
+						<div style="position: absolute; width: 40%; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); padding: 20px; padding-bottom: 150px; font-size: 20px; text-align: left;">
+							<h2>Indexed / Indexing</h2>
+						<p>The process of downloading a site or a page’s content to the server of the search engine, thereby adding it to its “index”.</p>
+						</div>
+						<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); padding: 20px; font-size: 20px; text-align: left;">
+							<img data-src="assets/index.png" alt="seo">
+						</div>
+					</section> 
+					<section>
+						<h2>Good: HTTP authentication</h2>
+						<img data-src="assets/http-authentication.png" alt="seo">
+					</section>
+					<section>
+						<h2>Good: IP whitelisting</h2>
+						<img data-src="assets/whitelistIP.png" alt="seo">
+					</section>
+					<section>
+						<h2>Maybe: Noindex or Disallow in robots.txt</h2>
+						<pre class="my-code">
+							<code class="hljs" data-trim data-line-numbers>
+Disallow:&nbsp;/example-page-1/
+Disallow:&nbsp;/example-page-2/
+Noindex:&nbsp;/example-page-1/
+Noindex:&nbsp;/example-page-2/</code>
+						</pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<blockquote class="common-issue" cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+							Most common technical SEO rules
+						</blockquote>
+						<h3>2. Analyze the load speed of your website</h3>
+						<img style="width: 500px;" data-src="https://66.media.tumblr.com/b0d797586223f02150ebd9bcc7e6dc20/tumblr_msojht4UgG1qh8pyqo1_640.gifv" alt="">
+					</section>
+					<section>
+						<h2><a href="https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk">Lighthouse</a></h2>
+						<img data-src="assets/lighthouse.png" alt="">
+					</section>
+					<section>
+						<h2><a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a></h2>
+						<img style="width: 700px;" data-src="assets/page-speed.png" alt="">
+					</section>
+					<section>
+						<ul>
+							<li>Compress and minify your code</li>
+							<li>Reduce page redirects</li>
+							<li>Remove render-blocking JavaScript</li>
+							<li>Use treeshaking</li>
+							<li>Leverage browser caching</li>
+							<li>Use a CDN</li>
+							<li>Leverage preconnect, prefetch and<br> preload</li>
+							<li>Analyze critical rendering path<br> in Chrome Dev Tools.</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li>Keep JavaScript bundles small</li>
+							<li>Use server-side or pre-rendering</li>
+							<li>Use Chrome Dev Tools “Performance” tab</li>
+							<li>Compress your images</li>
+							<li>Explore lazy loading</li>
+							<p><a href="https://search.google.com/test/mobile-friendly"></a></p>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<blockquote class="common-issue" cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+							Most common technical SEO rules
+						</blockquote>
+						<h3>3. Check if your site is mobile-friendly</h3>
+						<img data-src="https://www.ohmagif.com/wp-content/uploads/2014/01/shhh-im-talking-to-my-girlfriend-on-the-phone.gif" alt="">
+					</section>
+					<section>
+						<h4>Desktop vs Mobile vs Tablet Market Share Worldwide</h4>
+						<p><small>Apr 2019 - Apr 2020</small></p>
+						<div id="desktop+mobile+tablet-comparison-ww-monthly-201904-202004">
+						</div>
+						<p><small>Source: <a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet">StatCounter Global Stats - Platform Comparison Market Share</a></small></p>
+						<script type="text/javascript" src="https://www.statcounter.com/js/fusioncharts.js"></script>
+						<script type="text/javascript" src="https://gs.statcounter.com/chart.php?desktop+mobile+tablet-comparison-ww-monthly-201904-202004&chartWidth=600">
+						</script>
+					</section>
+					<section>
+						<ul>
+							<li>Responsive web design (adjusts for screen size)</li>
+							<li>Dynamic serving (serves different content based on a user’s device)</li>
+							<li>Separate URLs (different URLs that serve mobile-optimized content). Not advised.</li>
+							<li>Check to see if your site is mobile-friendly in <a href="https://search.google.com/test/mobile-friendly">Mobile-Friendly Test</a></li>
+						</ul>
+					</section>
+					<section>
+						<h4>Best practice</h4>
+						<ul>
+							<li><p>Your mobile version should display the same content as your
+								desktop site</p></li>
+							<li><p>Page title tags & meta descriptions should remain the same</p></li>
+							<li><p>Use the meta name="viewport" tag. For example:</p></li>
+							<pre class="my-code" style="margin: 0;">
+								<code class="hljs html" data-trim>
+<meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+							</code>
+						</pre>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<blockquote class="common-issue" cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+							Most common technical SEO rules
+						</blockquote>
+						<h3>4. Handle errors and error pages on websites.</h3>
+						<img data-src="https://media.giphy.com/media/9J7tdYltWyXIY/giphy.gif" alt="">
+					</section>
+					<section data-background="assets/404.jpeg"></section>
+					<section>
+						<ul>
+							<li>Customize your 404 page and save main navigation</li>
+							<li>Add links to the most popular pages</li>
+							<li>Be creative with your 404’s web design.</li>
+						</ul>
+						<img data-src="https://media1.giphy.com/media/VwoJkTfZAUBSU/giphy.gif?cid=ecf05e47ad359c590cbd8844778ed3fe6a7eadabd3601caf&rid=giphy.gif" style="width: 266px;" alt="">
+					</section>
+				</section>
+				<section>
+					<section>
+						<blockquote class="common-issue" cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+							Most common technical SEO rules
+						</blockquote>
+						<h3>5. Use human-readable URL structure</h3>
+						<img data-src="assets/url.png" alt="">
+					</section>
+					<section>
+						<ul>
+							<li>Choose human-readable URLs with descriptive keywords</li>
+							<li>Use short addresses</li>
+							<li>Exclude dynamic parameters when possible </li>
+							<li>Separate path and page keywords with hyphens("-")</li>
+							<li>Use lowercase letters</li>
+						</ul>
+					</section>
+					<section>
+						<div style="position: absolute; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); padding: 20px; top: 200px; padding-right: 72px; font-size: 20px; text-align: left;">
+							<h2>semantically <span class ="accurate-urls"><em>accurate</em></span> URL:</h2>
+						<p>https://www.healthline.com/health/how-to-make-hand-sanitizer</p>
+						</div>
+						<div style="position: absolute;  box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); padding: 20px; font-size: 20px; text-align: left;">
+							<h2>Semantically <span class="inaccurate-urls"><em>inaccurate</em></span> URL:</h2>
+						<p>https://www.imdb.com/title/tt0816692/?ref_=hm_fanfav_tt_15_pd_fp1</p>
+						</div>
+					</section>
+					
+				</section>
+				<section>
+					<section>
+						<h3>Best practice</h3>
+						<img data-src="https://media0.giphy.com/media/yJFeycRK2DB4c/giphy.gif?cid=ecf05e470410043cb6ad1bfe6cccf8f82b867b54d01feafb&rid=giphy.gif" alt="">
+					</section>
+					<section>
+						<h3>Best practice</h3>
+						<ul>
+							<li>Redirect Issues(temporary redirects, redirect chains, meta refreshes)</li>
+							<li>Avoid invisible, barely visible or hidden text, links</li>
+							<li>If you need to change the page URL, be sure to set up a redirect to a new page, especially if this page is already old</li>
+							<li>Set Rich Snippets and Structured Data</li>
+							<li>Add A Click-to-call Link</li>
+							<li>Check your code in W3C Validator and fix there</li>
+						</ul>
+					</section>
+				</section>
+				<section data-background="assets/end.jpeg">
+					<h3 style="text-align: left; margin-top: -205px;">Have a good code!</h3>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
